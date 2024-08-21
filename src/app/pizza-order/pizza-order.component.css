@@ -1,0 +1,27 @@
+.order-entry {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .pizza-order-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .pizza-order-table th, .pizza-order-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .pizza-order-table .category {
+    background-color: #f9f9f9;
+    font-weight: bold;
+  }
+  
+  .pizza-order-table .total-row, .pizza-order-table .offer-row {
+    background-color: #e0e0e0;
+    font-weight: bold;
+  }
+  

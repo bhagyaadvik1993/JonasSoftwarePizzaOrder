@@ -1,0 +1,56 @@
+<div class="order-entry">
+    <h2>Order Your Pizza</h2>
+    <table class="pizza-order-table">
+      <thead>
+        <tr>
+          <th rowspan="2">Toppings</th>
+          <th colspan="4">Pizza Size</th>
+        </tr>
+        <tr>          
+          <th>Small ($5)</th>
+          <th>Medium ($7)</th>
+          <th>Large ($8)</th>
+          <th>Extra Large ($9)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="category">
+          <td colspan="5">Veg Toppings</td>
+        </tr>
+        <tr *ngFor="let veg of vegToppings">
+          <td>{{veg.name}} ({{veg.price | currency}})</td>
+          <td><input type="checkbox" [(ngModel)]="veg.selected.small"></td>
+          <td><input type="checkbox" [(ngModel)]="veg.selected.medium"></td>
+          <td><input type="checkbox" [(ngModel)]="veg.selected.large"></td>
+          <td><input type="checkbox" [(ngModel)]="veg.selected.extraLarge"></td>
+        </tr>
+        <tr class="category">
+          <td colspan="5">Non Veg Toppings</td>
+        </tr>
+        <tr *ngFor="let nonVeg of nonVegToppings">
+          <td>{{nonVeg.name}} ({{nonVeg.price | currency}})</td>
+          <td><input type="checkbox" [(ngModel)]="nonVeg.selected.small"></td>
+          <td><input type="checkbox" [(ngModel)]="nonVeg.selected.medium"></td>
+          <td><input type="checkbox" [(ngModel)]="nonVeg.selected.large"></td>
+          <td><input type="checkbox" [(ngModel)]="nonVeg.selected.extraLarge"></td>
+        </tr>
+        <tr class="offer-row">
+          <td>Offer</td>
+          <td colspan="4">Offer: <input type="checkbox" [(ngModel)]="offerSelected"> - {{applyOffers() | currency}}</td>
+        </tr>
+        <tr class="total-row">
+          <td>Total</td>
+          <td colspan="4"><span *ngIf="offerSelected">
+            <span style="text-decoration: line-through;">{{ getTotalPrice() | currency:'USD':'symbol' }}</span>
+            &nbsp;{{ finalTotalPrice | currency:'USD':'symbol' }}
+          </span>
+          <span *ngIf="!offerSelected">
+            {{ getTotalPrice()| currency:'USD':'symbol' }}
+          </span></td>         
+         
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
